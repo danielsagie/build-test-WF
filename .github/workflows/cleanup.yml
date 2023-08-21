@@ -4,6 +4,7 @@ run-name: clean-up assistant
 on:
   schedule:
     - cron: '50 * * * *'
+  workflow_dispatch:  # This enables manual triggering
 
 jobs:
   clean-docker:
