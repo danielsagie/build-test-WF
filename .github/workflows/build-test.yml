@@ -24,6 +24,4 @@ jobs:
             echo "Error with web"
             exit 1
           fi
-      
-      - name: Stop the container
-        run: docker stop hello
+    

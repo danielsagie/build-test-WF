@@ -1,0 +1,25 @@
+name: clean-up
+run-name: clean-up assistant
+
+on:
+  schedule:
+    - cron: '1 * * * *'  # Runs every hour at the 5th minute
+
+jobs:
+  clean-docker:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Remove old Docker images
+      run: |
+        docker system prune -a -f  # Remove all unused images, not just dangling ones
+
+    - name: Remove unused volumes
+      run: |
+        docker volume prune -f
+        
+    - name: Stop the container
+      run: docker stop hello
