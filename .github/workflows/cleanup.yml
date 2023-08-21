@@ -3,7 +3,7 @@ run-name: clean-up assistant
 
 on:
   schedule:
-    - cron: '21 * * * *'  # Runs every hour at the 5th minute
+    - cron: '1/* * * * *' 
 
 jobs:
   clean-docker:
