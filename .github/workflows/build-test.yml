@@ -16,7 +16,14 @@ jobs:
           sleep 5  # Give the container some time to start
       
       - name: Test the application
-        run: docker logs hello|grep 'Hello, World!'
+        run: |
+          output=$(curl -s http://localhost:3000)
+          if [[ "$output" == "Hello, World!" ]]; then
+            echo "HTML worked"
+          else
+            echo "Error with web"
+            exit 1
+          fi
       
       - name: Stop the container
         run: docker stop hello
