@@ -12,12 +12,11 @@ jobs:
       - name: Build and run Docker image
         run: |
           docker build -t hello .
-          docker run -d --name hello -p 80:80 hello
+          docker run -d --name hello -p 3000:3000 hello
           sleep 5  # Give the container some time to start
       
       - name: Test the application
-        run: curl http://localhost |sleep 40
-        # | grep 'Hello, World!'
+        run: docker logs hello|grep 'Hello, World!'
       
       - name: Stop the container
         run: docker stop hello
