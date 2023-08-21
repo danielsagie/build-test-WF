@@ -3,7 +3,7 @@ run-name: clean-up assistant
 
 on:
   schedule:
-    - cron: '1 * * * *'  # Runs every hour at the 5th minute
+    - cron: '21 * * * *'  # Runs every hour at the 5th minute
 
 jobs:
   clean-docker:
@@ -20,6 +20,6 @@ jobs:
     - name: Remove unused volumes
       run: |
         docker volume prune -f
-        
+
     - name: Stop the container
       run: docker stop hello
