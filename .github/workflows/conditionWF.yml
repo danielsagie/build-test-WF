@@ -18,12 +18,13 @@ jobs:
       run: echo "Pay Attention test.txt has been modified."
 
     - name: Append date to test.txt
-      run: echo "Updated on $(date)" >> test.txt
+      run: echo "Updated on $(date)" >> dates.txt
 
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add test.txt
-        git commit -m "Append date to test.txt"
-        git push
+        git add dates.txt
+        git commit -m "Append date to dates.txt"
+        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/danielsagie/build-test-WF.git
+    
