@@ -20,11 +20,16 @@ jobs:
     - name: Append date to test.txt
       run: echo "Updated on $(date)" >> dates.txt
 
+    - name: Debug token
+      run: echo "Token  $(echo ${{ secrets.YOUR_SECRET_NAME }} | head -c 4)"
+    
+
+
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add dates.txt
         git commit -m "Append date to dates.txt"
-        git push https://${{ secrets.MY_GITHUB_TOKEN_WF }}@github.com/danielsagie/build-test-WF.git
+        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/danielsagie/build-test-WF.git
     
