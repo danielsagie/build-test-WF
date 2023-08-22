@@ -19,11 +19,10 @@ jobs:
 
     - name: Append date to test.txt
       run: echo "Updated on $(date)" >> dates.txt
-
+     
     - name: Debug token
-      run: echo "Token  $(echo ${{ secrets.YOUR_SECRET_NAME }} | head -c 4)"
+      run: echo " ${{ secrets.YOUR_SECRET_NAME:0:4 }}"
     
-
 
     - name: Commit and push changes
       run: |
