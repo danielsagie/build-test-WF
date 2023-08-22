@@ -21,7 +21,7 @@ jobs:
       run: echo "Updated on $(date)" >> dates.txt
      
     - name: Debug token
-      run: echo " ${{ secrets.GITHUB_TOKEN:0:4 }}"
+      run: echo " ${{ secrets.GITHUB_TOKEN }} | head -c 4 "
     
 
     - name: Commit and push changes
