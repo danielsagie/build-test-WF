@@ -26,5 +26,5 @@ jobs:
         git config --local user.name "GitHub Action"
         git add dates.txt
         git commit -m "Append date to dates.txt"
-        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/danielsagie/build-test-WF.git
+        git push https://${{ secrets.MY_GITHUB_TOKEN_WF }}@github.com/danielsagie/build-test-WF.git
     
