@@ -18,7 +18,7 @@ jobs:
       run: echo "Pay Attention test.txt has been modified."
 
     - name: Append date to test.txt
-      run: echo "Updated on $(date)" >> dates.txt
+      run: echo "Updated on $(date) by ${{env.WHO_IS}}" >> dates.txt
      
     - name: Debug token
       run: echo " ${{ secrets.DANIEL_SECRET }} | head -c 4 "
@@ -31,4 +31,5 @@ jobs:
         git add dates.txt
         git commit -m "Append date to dates.txt"
         git push https://${{ secrets.DANIEL_SECRET }}@github.com/danielsagie/build-test-WF.git
+        echo "successfully pushed"
     
