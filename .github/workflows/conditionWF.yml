@@ -18,7 +18,7 @@ jobs:
       run: echo "Pay Attention test.txt has been modified."
 
     - name: Append date to test.txt
-      run: echo "Updated on $(date) by ${{secrets.WHO_IS}}" >> dates.txt
+      run: echo "Updated on $(date) by ${{vars.WHO_IS}}" >> dates.txt
      
     - name: Debug token
       run: echo " ${{ secrets.DANIEL_SECRET }} | head -c 4 "
